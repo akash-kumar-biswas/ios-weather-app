@@ -94,8 +94,10 @@
 		22B204362F54266200E69192 /* Weather-App */ = {
 			isa = PBXGroup;
 			children = (
-				22B204372F54266200E69192 /* Weather_AppApp.swift */,
-				22B204392F54266200E69192 /* ContentView.swift */,
+				22B204652F542C8E00E69192 /* Features */,
+				22B204642F542C7300E69192 /* Shared */,
+				22B204622F542C5A00E69192 /* Core */,
+				22B204612F542C5000E69192 /* App */,
 				22B2043B2F54266400E69192 /* Assets.xcassets */,
 				22B2043D2F54266400E69192 /* Preview Content */,
 			);
@@ -125,6 +127,36 @@
 				22B204542F54266400E69192 /* Weather_AppUITestsLaunchTests.swift */,
 			);
 			path = "Weather-AppUITests";
+			sourceTree = "<group>";
+		};
+		22B204612F542C5000E69192 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				22B204392F54266200E69192 /* ContentView.swift */,
+				22B204372F54266200E69192 /* Weather_AppApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		22B204622F542C5A00E69192 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		22B204642F542C7300E69192 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		22B204652F542C8E00E69192 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Features;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
