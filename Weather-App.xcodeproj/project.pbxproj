@@ -11,6 +11,7 @@
 		22886DAD2F554760009F6117 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 22886DAC2F554760009F6117 /* FirebaseFirestore */; };
 		22886DB02F554B97009F6117 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DAF2F554B97009F6117 /* AuthViewModel.swift */; };
 		22886DB52F554C5D009F6117 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DB42F554C5D009F6117 /* LoginView.swift */; };
+		22886DB72F5555AF009F6117 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22886DB62F5555AE009F6117 /* Secrets.plist */; };
 		22B204382F54266200E69192 /* Weather_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B204372F54266200E69192 /* Weather_AppApp.swift */; };
 		22B2043C2F54266400E69192 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B2043B2F54266400E69192 /* Assets.xcassets */; };
 		22B2043F2F54266400E69192 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B2043E2F54266400E69192 /* Preview Assets.xcassets */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		22886DAF2F554B97009F6117 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		22886DB42F554C5D009F6117 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		22886DB62F5555AE009F6117 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		22B204342F54266200E69192 /* Weather-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22B204372F54266200E69192 /* Weather_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_AppApp.swift; sourceTree = "<group>"; };
 		22B2043B2F54266400E69192 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				22B204612F542C5000E69192 /* App */,
 				22B2043B2F54266400E69192 /* Assets.xcassets */,
 				22B2043D2F54266400E69192 /* Preview Content */,
+				22886DB62F5555AE009F6117 /* Secrets.plist */,
 			);
 			path = "Weather-App";
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22886DB72F5555AF009F6117 /* Secrets.plist in Resources */,
 				22B2043F2F54266400E69192 /* Preview Assets.xcassets in Resources */,
 				22B2043C2F54266400E69192 /* Assets.xcassets in Resources */,
 				22B2046B2F5432BA00E69192 /* GoogleService-Info.plist in Resources */,
