@@ -19,6 +19,9 @@
 		22886DC52F555B9D009F6117 /* WeatherHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DC42F555B9D009F6117 /* WeatherHomeView.swift */; };
 		22886DC72F555BCF009F6117 /* WeatherCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DC62F555BCF009F6117 /* WeatherCardView.swift */; };
 		22886DC92F555E14009F6117 /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DC82F555E14009F6117 /* InfoItem.swift */; };
+		22886DCB2F5562D1009F6117 /* ForecastResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DCA2F5562D1009F6117 /* ForecastResponse.swift */; };
+		22886DCD2F55644F009F6117 /* HourlyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DCC2F55644F009F6117 /* HourlyForecastView.swift */; };
+		22886DCF2F556700009F6117 /* DailyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DCE2F556700009F6117 /* DailyForecastView.swift */; };
 		22B204382F54266200E69192 /* Weather_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B204372F54266200E69192 /* Weather_AppApp.swift */; };
 		22B2043C2F54266400E69192 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B2043B2F54266400E69192 /* Assets.xcassets */; };
 		22B2043F2F54266400E69192 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B2043E2F54266400E69192 /* Preview Assets.xcassets */; };
@@ -58,6 +61,9 @@
 		22886DC42F555B9D009F6117 /* WeatherHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHomeView.swift; sourceTree = "<group>"; };
 		22886DC62F555BCF009F6117 /* WeatherCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCardView.swift; sourceTree = "<group>"; };
 		22886DC82F555E14009F6117 /* InfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
+		22886DCA2F5562D1009F6117 /* ForecastResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastResponse.swift; sourceTree = "<group>"; };
+		22886DCC2F55644F009F6117 /* HourlyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastView.swift; sourceTree = "<group>"; };
+		22886DCE2F556700009F6117 /* DailyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastView.swift; sourceTree = "<group>"; };
 		22B204342F54266200E69192 /* Weather-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22B204372F54266200E69192 /* Weather_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_AppApp.swift; sourceTree = "<group>"; };
 		22B2043B2F54266400E69192 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				22886DBC2F555948009F6117 /* WeatherResponse.swift */,
+				22886DCA2F5562D1009F6117 /* ForecastResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,6 +153,8 @@
 				22886DC42F555B9D009F6117 /* WeatherHomeView.swift */,
 				22886DC62F555BCF009F6117 /* WeatherCardView.swift */,
 				22886DC82F555E14009F6117 /* InfoItem.swift */,
+				22886DCC2F55644F009F6117 /* HourlyForecastView.swift */,
+				22886DCE2F556700009F6117 /* DailyForecastView.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -388,8 +397,11 @@
 			files = (
 				22886DC72F555BCF009F6117 /* WeatherCardView.swift in Sources */,
 				22886DBA2F5558AA009F6117 /* APIKeys.swift in Sources */,
+				22886DCD2F55644F009F6117 /* HourlyForecastView.swift in Sources */,
 				22886DC22F555A8A009F6117 /* WeatherViewModel.swift in Sources */,
+				22886DCB2F5562D1009F6117 /* ForecastResponse.swift in Sources */,
 				22886DB02F554B97009F6117 /* AuthViewModel.swift in Sources */,
+				22886DCF2F556700009F6117 /* DailyForecastView.swift in Sources */,
 				22886DC02F555A07009F6117 /* WeatherAPIClient.swift in Sources */,
 				22B204382F54266200E69192 /* Weather_AppApp.swift in Sources */,
 				22886DBD2F555948009F6117 /* WeatherResponse.swift in Sources */,
