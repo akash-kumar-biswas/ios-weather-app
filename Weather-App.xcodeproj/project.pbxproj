@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22886DAB2F554760009F6117 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 22886DAA2F554760009F6117 /* FirebaseAuth */; };
+		22886DAD2F554760009F6117 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 22886DAC2F554760009F6117 /* FirebaseFirestore */; };
 		22B204382F54266200E69192 /* Weather_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B204372F54266200E69192 /* Weather_AppApp.swift */; };
 		22B2043C2F54266400E69192 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B2043B2F54266400E69192 /* Assets.xcassets */; };
 		22B2043F2F54266400E69192 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B2043E2F54266400E69192 /* Preview Assets.xcassets */; };
@@ -15,6 +17,7 @@
 		22B204552F54266400E69192 /* Weather_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B204542F54266400E69192 /* Weather_AppUITestsLaunchTests.swift */; };
 		22B204672F542DAF00E69192 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B204662F542DAF00E69192 /* RootView.swift */; };
 		22B204692F542DFC00E69192 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B204682F542DFC00E69192 /* MainTabView.swift */; };
+		22B2046B2F5432BA00E69192 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22B2046A2F5432BA00E69192 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,7 @@
 		22B204542F54266400E69192 /* Weather_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		22B204662F542DAF00E69192 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		22B204682F542DFC00E69192 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		22B2046A2F5432BA00E69192 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22886DAB2F554760009F6117 /* FirebaseAuth in Frameworks */,
+				22886DAD2F554760009F6117 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +102,7 @@
 		22B204362F54266200E69192 /* Weather-App */ = {
 			isa = PBXGroup;
 			children = (
+				22B2046A2F5432BA00E69192 /* GoogleService-Info.plist */,
 				22B204652F542C8E00E69192 /* Features */,
 				22B204642F542C7300E69192 /* Shared */,
 				22B204622F542C5A00E69192 /* Core */,
@@ -178,6 +185,10 @@
 			dependencies = (
 			);
 			name = "Weather-App";
+			packageProductDependencies = (
+				22886DAA2F554760009F6117 /* FirebaseAuth */,
+				22886DAC2F554760009F6117 /* FirebaseFirestore */,
+			);
 			productName = "Weather-App";
 			productReference = 22B204342F54266200E69192 /* Weather-App.app */;
 			productType = "com.apple.product-type.application";
@@ -250,6 +261,9 @@
 				Base,
 			);
 			mainGroup = 22B2042B2F54266200E69192;
+			packageReferences = (
+				22886DA92F554760009F6117 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 22B204352F54266200E69192 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -268,6 +282,7 @@
 			files = (
 				22B2043F2F54266400E69192 /* Preview Assets.xcassets in Resources */,
 				22B2043C2F54266400E69192 /* Assets.xcassets in Resources */,
+				22B2046B2F5432BA00E69192 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,6 +628,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		22886DA92F554760009F6117 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = exactVersion;
+				version = 10.15.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		22886DAA2F554760009F6117 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22886DA92F554760009F6117 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		22886DAC2F554760009F6117 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22886DA92F554760009F6117 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 22B2042C2F54266200E69192 /* Project object */;
 }

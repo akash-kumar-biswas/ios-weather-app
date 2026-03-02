@@ -2,13 +2,16 @@
 //  Weather_AppApp.swift
 //  Weather-App
 //
-//  Created by macos on 28/2/26.
-//
-
 import SwiftUI
+import Firebase
 
 @main
 struct Weather_AppApp: App {
+
+    init() {
+        FirebaseApp.configure()
+    }
+
     var body: some Scene {
         WindowGroup {
             RootView()
