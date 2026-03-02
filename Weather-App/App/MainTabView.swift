@@ -1,30 +1,39 @@
-//
-//  MainTabView.swift
-//  Weather-App
-//
-//  Created by macos on 1/3/26.
-//
-
-import Foundation
 import SwiftUI
 
 struct MainTabView: View {
+    
+    @EnvironmentObject var authVM: AuthViewModel
+    
     var body: some View {
         TabView {
+            
             Text("Weather Screen")
                 .tabItem {
                     Label("Weather", systemImage: "cloud.sun")
                 }
-
+            
             Text("Favorites Screen")
                 .tabItem {
                     Label("Favorites", systemImage: "star")
                 }
-
-            Text("Profile Screen")
-                .tabItem {
-                    Label("Profile", systemImage: "person")
+            
+            VStack(spacing: 20) {
+                Text("Profile")
+                    .font(.title)
+                
+                Button("Logout") {
+                    authVM.signOut()
                 }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.red)
+                .foregroundColor(.white)
+                .cornerRadius(12)
+                .padding(.horizontal)
+            }
+            .tabItem {
+                Label("Profile", systemImage: "person")
+            }
         }
     }
 }

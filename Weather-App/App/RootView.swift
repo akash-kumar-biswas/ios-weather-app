@@ -1,15 +1,18 @@
-//
-//  RootView.swift
-//  Weather-App
-//
-//  Created by macos on 1/3/26.
-//
-
-import Foundation
 import SwiftUI
 
 struct RootView: View {
+    
+    @StateObject private var authVM = AuthViewModel()
+    
     var body: some View {
-        MainTabView()
+        Group {
+            if authVM.user == nil {
+                LoginView()
+                    .environmentObject(authVM)
+            } else {
+                MainTabView()
+                    .environmentObject(authVM)
+            }
+        }
     }
 }
