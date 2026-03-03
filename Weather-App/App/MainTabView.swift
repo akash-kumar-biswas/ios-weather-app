@@ -20,24 +20,11 @@ struct MainTabView: View {
                 }
                 .tag(1)
             
-            VStack(spacing: 20) {
-                Text("Profile")
-                    .font(.title)
-                
-                Button("Logout") {
-                    authVM.signOut()
+            ProfileView()
+                .tabItem {
+                    Label("Profile", systemImage: "person")
                 }
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.red)
-                .foregroundColor(.white)
-                .cornerRadius(12)
-                .padding(.horizontal)
-            }
-            .tabItem {
-                Label("Profile", systemImage: "person")
-            }
-            .tag(2)
+                .tag(2)
         }
     }
 }

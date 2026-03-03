@@ -27,6 +27,8 @@
 		22886DD72F557E65009F6117 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DD62F557E65009F6117 /* FavoritesView.swift */; };
 		22886DD92F5581E6009F6117 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DD82F5581E6009F6117 /* AppState.swift */; };
 		2296B0B82F569829009EC91E /* FavoriteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296B0B72F569829009EC91E /* FavoriteCard.swift */; };
+		2296B0BA2F569A9F009EC91E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296B0B92F569A9F009EC91E /* ProfileView.swift */; };
+		2296B0BC2F56A21D009EC91E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296B0BB2F56A21D009EC91E /* LocationManager.swift */; };
 		22B204382F54266200E69192 /* Weather_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B204372F54266200E69192 /* Weather_AppApp.swift */; };
 		22B2043C2F54266400E69192 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B2043B2F54266400E69192 /* Assets.xcassets */; };
 		22B2043F2F54266400E69192 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B2043E2F54266400E69192 /* Preview Assets.xcassets */; };
@@ -74,6 +76,8 @@
 		22886DD62F557E65009F6117 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		22886DD82F5581E6009F6117 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		2296B0B72F569829009EC91E /* FavoriteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCard.swift; sourceTree = "<group>"; };
+		2296B0B92F569A9F009EC91E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		2296B0BB2F56A21D009EC91E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		22B204342F54266200E69192 /* Weather-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22B204372F54266200E69192 /* Weather_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_AppApp.swift; sourceTree = "<group>"; };
 		22B2043B2F54266400E69192 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 			children = (
 				22886DD62F557E65009F6117 /* FavoritesView.swift */,
 				2296B0B72F569829009EC91E /* FavoriteCard.swift */,
+				2296B0B92F569A9F009EC91E /* ProfileView.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				22886DBB2F555920009F6117 /* Models */,
 				22886DAE2F554B63009F6117 /* ViewModels */,
 				22886DD82F5581E6009F6117 /* AppState.swift */,
+				2296B0BB2F56A21D009EC91E /* LocationManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -440,11 +446,13 @@
 				22886DC02F555A07009F6117 /* WeatherAPIClient.swift in Sources */,
 				22B204382F54266200E69192 /* Weather_AppApp.swift in Sources */,
 				22886DBD2F555948009F6117 /* WeatherResponse.swift in Sources */,
+				2296B0BC2F56A21D009EC91E /* LocationManager.swift in Sources */,
 				22B204672F542DAF00E69192 /* RootView.swift in Sources */,
 				22886DC92F555E14009F6117 /* InfoItem.swift in Sources */,
 				22886DB52F554C5D009F6117 /* LoginView.swift in Sources */,
 				22886DC52F555B9D009F6117 /* WeatherHomeView.swift in Sources */,
 				22B204692F542DFC00E69192 /* MainTabView.swift in Sources */,
+				2296B0BA2F569A9F009EC91E /* ProfileView.swift in Sources */,
 				2296B0B82F569829009EC91E /* FavoriteCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,6 +614,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Weather-App/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "$(MARKETING_VERSION)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -634,6 +644,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Weather-App/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "$(MARKETING_VERSION)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
