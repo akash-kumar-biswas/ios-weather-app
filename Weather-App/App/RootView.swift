@@ -1,8 +1,8 @@
 import SwiftUI
-
 struct RootView: View {
     
     @StateObject private var authVM = AuthViewModel()
+    @StateObject private var appState = AppState()
     
     var body: some View {
         Group {
@@ -12,6 +12,7 @@ struct RootView: View {
             } else {
                 MainTabView()
                     .environmentObject(authVM)
+                    .environmentObject(appState)
             }
         }
     }

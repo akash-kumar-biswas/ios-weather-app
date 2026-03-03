@@ -3,19 +3,22 @@ import SwiftUI
 struct MainTabView: View {
     
     @EnvironmentObject var authVM: AuthViewModel
+    @EnvironmentObject var appState: AppState
     
     var body: some View {
-        TabView {
+        TabView(selection: $appState.selectedTab) {
             
             WeatherHomeView()
                 .tabItem {
                     Label("Weather", systemImage: "cloud.sun")
                 }
+                .tag(0)
             
-            Text("Favorites Screen")
+            FavoritesView()
                 .tabItem {
                     Label("Favorites", systemImage: "star")
                 }
+                .tag(1)
             
             VStack(spacing: 20) {
                 Text("Profile")
@@ -34,6 +37,7 @@ struct MainTabView: View {
             .tabItem {
                 Label("Profile", systemImage: "person")
             }
+            .tag(2)
         }
     }
 }

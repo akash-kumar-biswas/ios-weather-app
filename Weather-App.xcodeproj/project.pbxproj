@@ -22,6 +22,11 @@
 		22886DCB2F5562D1009F6117 /* ForecastResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DCA2F5562D1009F6117 /* ForecastResponse.swift */; };
 		22886DCD2F55644F009F6117 /* HourlyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DCC2F55644F009F6117 /* HourlyForecastView.swift */; };
 		22886DCF2F556700009F6117 /* DailyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DCE2F556700009F6117 /* DailyForecastView.swift */; };
+		22886DD22F557C2C009F6117 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DD12F557C2C009F6117 /* FavoritesService.swift */; };
+		22886DD42F557CC0009F6117 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DD32F557CC0009F6117 /* FavoritesViewModel.swift */; };
+		22886DD72F557E65009F6117 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DD62F557E65009F6117 /* FavoritesView.swift */; };
+		22886DD92F5581E6009F6117 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DD82F5581E6009F6117 /* AppState.swift */; };
+		2296B0B82F569829009EC91E /* FavoriteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296B0B72F569829009EC91E /* FavoriteCard.swift */; };
 		22B204382F54266200E69192 /* Weather_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B204372F54266200E69192 /* Weather_AppApp.swift */; };
 		22B2043C2F54266400E69192 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B2043B2F54266400E69192 /* Assets.xcassets */; };
 		22B2043F2F54266400E69192 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B2043E2F54266400E69192 /* Preview Assets.xcassets */; };
@@ -64,6 +69,11 @@
 		22886DCA2F5562D1009F6117 /* ForecastResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastResponse.swift; sourceTree = "<group>"; };
 		22886DCC2F55644F009F6117 /* HourlyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastView.swift; sourceTree = "<group>"; };
 		22886DCE2F556700009F6117 /* DailyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastView.swift; sourceTree = "<group>"; };
+		22886DD12F557C2C009F6117 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
+		22886DD32F557CC0009F6117 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		22886DD62F557E65009F6117 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		22886DD82F5581E6009F6117 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		2296B0B72F569829009EC91E /* FavoriteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCard.swift; sourceTree = "<group>"; };
 		22B204342F54266200E69192 /* Weather-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22B204372F54266200E69192 /* Weather_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_AppApp.swift; sourceTree = "<group>"; };
 		22B2043B2F54266400E69192 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,6 +120,7 @@
 			children = (
 				22886DAF2F554B97009F6117 /* AuthViewModel.swift */,
 				22886DC12F555A8A009F6117 /* WeatherViewModel.swift */,
+				22886DD32F557CC0009F6117 /* FavoritesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -157,6 +168,23 @@
 				22886DCE2F556700009F6117 /* DailyForecastView.swift */,
 			);
 			path = Weather;
+			sourceTree = "<group>";
+		};
+		22886DD02F557BF9009F6117 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				22886DD12F557C2C009F6117 /* FavoritesService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		22886DD52F557E3B009F6117 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				22886DD62F557E65009F6117 /* FavoritesView.swift */,
+				2296B0B72F569829009EC91E /* FavoriteCard.swift */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		22B2042B2F54266200E69192 = {
@@ -232,9 +260,11 @@
 		22B204622F542C5A00E69192 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				22886DD02F557BF9009F6117 /* Services */,
 				22886DBE2F5559E6009F6117 /* Networking */,
 				22886DBB2F555920009F6117 /* Models */,
 				22886DAE2F554B63009F6117 /* ViewModels */,
+				22886DD82F5581E6009F6117 /* AppState.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -250,6 +280,7 @@
 		22B204652F542C8E00E69192 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				22886DD52F557E3B009F6117 /* Favorites */,
 				22886DC32F555B77009F6117 /* Weather */,
 				22886DB12F554C0B009F6117 /* Auth */,
 			);
@@ -397,10 +428,14 @@
 			files = (
 				22886DC72F555BCF009F6117 /* WeatherCardView.swift in Sources */,
 				22886DBA2F5558AA009F6117 /* APIKeys.swift in Sources */,
+				22886DD92F5581E6009F6117 /* AppState.swift in Sources */,
 				22886DCD2F55644F009F6117 /* HourlyForecastView.swift in Sources */,
 				22886DC22F555A8A009F6117 /* WeatherViewModel.swift in Sources */,
 				22886DCB2F5562D1009F6117 /* ForecastResponse.swift in Sources */,
+				22886DD22F557C2C009F6117 /* FavoritesService.swift in Sources */,
 				22886DB02F554B97009F6117 /* AuthViewModel.swift in Sources */,
+				22886DD42F557CC0009F6117 /* FavoritesViewModel.swift in Sources */,
+				22886DD72F557E65009F6117 /* FavoritesView.swift in Sources */,
 				22886DCF2F556700009F6117 /* DailyForecastView.swift in Sources */,
 				22886DC02F555A07009F6117 /* WeatherAPIClient.swift in Sources */,
 				22B204382F54266200E69192 /* Weather_AppApp.swift in Sources */,
@@ -410,6 +445,7 @@
 				22886DB52F554C5D009F6117 /* LoginView.swift in Sources */,
 				22886DC52F555B9D009F6117 /* WeatherHomeView.swift in Sources */,
 				22B204692F542DFC00E69192 /* MainTabView.swift in Sources */,
+				2296B0B82F569829009EC91E /* FavoriteCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

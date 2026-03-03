@@ -2,13 +2,16 @@ import SwiftUI
 
 struct WeatherHomeView: View {
     
+    @EnvironmentObject var appState: AppState
+    
+    @StateObject private var favoritesVM = FavoritesViewModel()
     @StateObject private var weatherVM = WeatherViewModel()
     @State private var city = ""
     
     var body: some View {
         ZStack {
             
-            // Sky Background
+            // MARK: - Background
             LinearGradient(
                 colors: [Color.blue, Color.blue.opacity(0.6)],
                 startPoint: .top,
@@ -41,9 +44,9 @@ struct WeatherHomeView: View {
                         }
                     }
                     
+                    // MARK: - Weather Content
                     if let weather = weatherVM.weather {
                         
-                        // MARK: - Header Section (Apple Style)
                         VStack(spacing: 8) {
                             
                             Text(weather.name)
@@ -62,11 +65,27 @@ struct WeatherHomeView: View {
                         }
                         .padding(.top, 30)
                         
-                        // MARK: - Hourly Forecast (Next Step will fill properly)
+                        // MARK: - Add to Favorites Button
+                        Button {
+                            Task {
+                                await favoritesVM.add(city: weather.name)
+                            }
+                        } label: {
+                            Label("Add to Favorites", systemImage: "star.fill")
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(Color.yellow.opacity(0.9))
+                                .foregroundColor(.black)
+                                .cornerRadius(15)
+                        }
+                        .padding(.top, 10)
+                        
+                        // MARK: - Hourly Forecast
                         HourlyForecastView(hourly: weatherVM.hourlyForecast)
+                        
+                        // MARK: - Daily Forecast
+                        DailyForecastView(daily: weatherVM.dailyForecast)
                     }
-                    
-                    DailyForecastView(daily: weatherVM.dailyForecast)
                     
                     if weatherVM.isLoading {
                         ProgressView()
@@ -79,9 +98,16 @@ struct WeatherHomeView: View {
                             .foregroundColor(.white)
                             .padding()
                     }
-                    
                 }
                 .padding()
+                .onChange(of: appState.selectedCity) { selectedCity in
+                    if let selectedCity = selectedCity {
+                        city = selectedCity
+                        Task {
+                            await weatherVM.fetchWeather(for: selectedCity)
+                        }
+                    }
+                }
             }
         }
     }
