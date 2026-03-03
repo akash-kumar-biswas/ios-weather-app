@@ -53,4 +53,26 @@ final class WeatherViewModel: ObservableObject {
         
         isLoading = false
     }
+    
+    // for fetching weather of current location
+    func fetchWeather(latitude: Double, longitude: Double) async {
+        isLoading = true
+        errorMessage = nil
+        
+        do {
+            async let current = WeatherAPIClient.shared
+                .fetchWeather(latitude: latitude, longitude: longitude)
+            
+            async let forecastData = WeatherAPIClient.shared
+                .fetchForecast(latitude: latitude, longitude: longitude)
+            
+            self.weather = try await current
+            self.forecast = try await forecastData
+            
+        } catch {
+            errorMessage = "Failed to fetch location weather."
+        }
+        
+        isLoading = false
+    }
 }

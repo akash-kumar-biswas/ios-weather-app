@@ -187,7 +187,6 @@
 			children = (
 				22886DD62F557E65009F6117 /* FavoritesView.swift */,
 				2296B0B72F569829009EC91E /* FavoriteCard.swift */,
-				2296B0B92F569A9F009EC91E /* ProfileView.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -286,6 +285,7 @@
 		22B204652F542C8E00E69192 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				2296B0B92F569A9F009EC91E /* ProfileView.swift */,
 				22886DD52F557E3B009F6117 /* Favorites */,
 				22886DC32F555B77009F6117 /* Weather */,
 				22886DB12F554C0B009F6117 /* Auth */,

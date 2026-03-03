@@ -6,12 +6,14 @@ struct WeatherHomeView: View {
     
     @StateObject private var favoritesVM = FavoritesViewModel()
     @StateObject private var weatherVM = WeatherViewModel()
+    @StateObject private var locationManager = LocationManager()
+    
     @State private var city = ""
+    @State private var hasLoadedInitialWeather = false
     
     var body: some View {
         ZStack {
             
-            // MARK: - Background
             LinearGradient(
                 colors: [Color.blue, Color.blue.opacity(0.6)],
                 startPoint: .top,
@@ -65,7 +67,6 @@ struct WeatherHomeView: View {
                         }
                         .padding(.top, 30)
                         
-                        // MARK: - Add to Favorites Button
                         Button {
                             Task {
                                 await favoritesVM.add(city: weather.name)
@@ -80,10 +81,7 @@ struct WeatherHomeView: View {
                         }
                         .padding(.top, 10)
                         
-                        // MARK: - Hourly Forecast
                         HourlyForecastView(hourly: weatherVM.hourlyForecast)
-                        
-                        // MARK: - Daily Forecast
                         DailyForecastView(daily: weatherVM.dailyForecast)
                     }
                     
@@ -100,12 +98,39 @@ struct WeatherHomeView: View {
                     }
                 }
                 .padding()
+                
+                // Favorite city selection
                 .onChange(of: appState.selectedCity) { selectedCity in
                     if let selectedCity = selectedCity {
                         city = selectedCity
                         Task {
                             await weatherVM.fetchWeather(for: selectedCity)
                         }
+                    }
+                }
+            }
+            
+            // Load location ONLY once
+            .onAppear {
+                if !hasLoadedInitialWeather {
+                    hasLoadedInitialWeather = true
+                    locationManager.requestLocation()
+                }
+            }
+            
+            // Fetch weather when location updates
+            .onChange(of: locationManager.location) { location in
+                if let location = location {
+                    Task {
+                        await weatherVM.fetchWeather(
+                            latitude: location.coordinate.latitude,
+                            longitude: location.coordinate.longitude
+                        )
+                    }
+                } else {
+                    // fallback only if location truly unavailable
+                    Task {
+                        await weatherVM.fetchWeather(for: "Khulna")
                     }
                 }
             }

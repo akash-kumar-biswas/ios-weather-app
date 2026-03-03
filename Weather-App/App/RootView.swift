@@ -13,6 +13,9 @@ struct RootView: View {
                 MainTabView()
                     .environmentObject(authVM)
                     .environmentObject(appState)
+                    .onAppear {
+                                appState.selectedTab = 0 //open weather first
+                    }
             }
         }
     }

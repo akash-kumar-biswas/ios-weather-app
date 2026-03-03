@@ -1,6 +1,6 @@
 import Foundation
 import CoreLocation
-
+//for current location-full file
 final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     private let manager = CLLocationManager()
