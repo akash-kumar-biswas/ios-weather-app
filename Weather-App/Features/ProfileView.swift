@@ -139,5 +139,20 @@ struct ProfileView: View {
                 }
             }
         }
+        .onChange(of: temperatureUnit) { _ in
+            Task {
+                let created = profileVM.profile?.createdAt ?? Date()
+                let updated = UserProfile(
+                    name: name,
+                    dateOfBirth: dateOfBirth,
+                    country: country,
+                    gender: gender,
+                    temperatureUnit: temperatureUnit,
+                    lastViewedCity: profileVM.profile?.lastViewedCity,
+                    createdAt: created
+                )
+                await profileVM.saveProfile(updated)
+            }
+        }
     }
 }
