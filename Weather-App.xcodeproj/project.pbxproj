@@ -29,6 +29,9 @@
 		2296B0B82F569829009EC91E /* FavoriteCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296B0B72F569829009EC91E /* FavoriteCard.swift */; };
 		2296B0BA2F569A9F009EC91E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296B0B92F569A9F009EC91E /* ProfileView.swift */; };
 		2296B0BC2F56A21D009EC91E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296B0BB2F56A21D009EC91E /* LocationManager.swift */; };
+		2296B0BE2F56CF8D009EC91E /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296B0BD2F56CF8D009EC91E /* UserProfile.swift */; };
+		2296B0C02F56CFD4009EC91E /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296B0BF2F56CFD4009EC91E /* ProfileService.swift */; };
+		2296B0C22F56D0B2009EC91E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296B0C12F56D0B2009EC91E /* ProfileViewModel.swift */; };
 		22B204382F54266200E69192 /* Weather_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B204372F54266200E69192 /* Weather_AppApp.swift */; };
 		22B2043C2F54266400E69192 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B2043B2F54266400E69192 /* Assets.xcassets */; };
 		22B2043F2F54266400E69192 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B2043E2F54266400E69192 /* Preview Assets.xcassets */; };
@@ -78,6 +81,9 @@
 		2296B0B72F569829009EC91E /* FavoriteCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCard.swift; sourceTree = "<group>"; };
 		2296B0B92F569A9F009EC91E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		2296B0BB2F56A21D009EC91E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		2296B0BD2F56CF8D009EC91E /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		2296B0BF2F56CFD4009EC91E /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		2296B0C12F56D0B2009EC91E /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		22B204342F54266200E69192 /* Weather-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22B204372F54266200E69192 /* Weather_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_AppApp.swift; sourceTree = "<group>"; };
 		22B2043B2F54266400E69192 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,6 +131,7 @@
 				22886DAF2F554B97009F6117 /* AuthViewModel.swift */,
 				22886DC12F555A8A009F6117 /* WeatherViewModel.swift */,
 				22886DD32F557CC0009F6117 /* FavoritesViewModel.swift */,
+				2296B0C12F56D0B2009EC91E /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -150,6 +157,7 @@
 			children = (
 				22886DBC2F555948009F6117 /* WeatherResponse.swift */,
 				22886DCA2F5562D1009F6117 /* ForecastResponse.swift */,
+				2296B0BD2F56CF8D009EC91E /* UserProfile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				22886DD12F557C2C009F6117 /* FavoritesService.swift */,
+				2296B0BF2F56CFD4009EC91E /* ProfileService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -438,6 +447,7 @@
 				22886DCD2F55644F009F6117 /* HourlyForecastView.swift in Sources */,
 				22886DC22F555A8A009F6117 /* WeatherViewModel.swift in Sources */,
 				22886DCB2F5562D1009F6117 /* ForecastResponse.swift in Sources */,
+				2296B0BE2F56CF8D009EC91E /* UserProfile.swift in Sources */,
 				22886DD22F557C2C009F6117 /* FavoritesService.swift in Sources */,
 				22886DB02F554B97009F6117 /* AuthViewModel.swift in Sources */,
 				22886DD42F557CC0009F6117 /* FavoritesViewModel.swift in Sources */,
@@ -445,9 +455,11 @@
 				22886DCF2F556700009F6117 /* DailyForecastView.swift in Sources */,
 				22886DC02F555A07009F6117 /* WeatherAPIClient.swift in Sources */,
 				22B204382F54266200E69192 /* Weather_AppApp.swift in Sources */,
+				2296B0C22F56D0B2009EC91E /* ProfileViewModel.swift in Sources */,
 				22886DBD2F555948009F6117 /* WeatherResponse.swift in Sources */,
 				2296B0BC2F56A21D009EC91E /* LocationManager.swift in Sources */,
 				22B204672F542DAF00E69192 /* RootView.swift in Sources */,
+				2296B0C02F56CFD4009EC91E /* ProfileService.swift in Sources */,
 				22886DC92F555E14009F6117 /* InfoItem.swift in Sources */,
 				22886DB52F554C5D009F6117 /* LoginView.swift in Sources */,
 				22886DC52F555B9D009F6117 /* WeatherHomeView.swift in Sources */,
