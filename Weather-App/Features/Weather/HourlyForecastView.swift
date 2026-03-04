@@ -3,6 +3,9 @@ import SwiftUI
 struct HourlyForecastView: View {
     
     let hourly: [ForecastItem]
+    var temperatureUnit: String = "C"
+    
+    private var unitSymbol: String { temperatureUnit == "F" ? "°F" : "°C" }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
@@ -30,7 +33,7 @@ struct HourlyForecastView: View {
                                 ProgressView()
                             }
                             
-                            Text("\(Int(item.main.temp))°")
+                            Text("\(Int(item.main.temp))\(unitSymbol)")
                                 .foregroundColor(.white)
                         }
                     }

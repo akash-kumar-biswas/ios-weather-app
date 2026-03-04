@@ -61,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		221252812F580ED4001554DA /* Weather-App */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Weather-App"; sourceTree = SOURCE_ROOT; };
 		22886DAF2F554B97009F6117 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		22886DB42F554C5D009F6117 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		22886DB62F5555AE009F6117 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
@@ -185,6 +186,7 @@
 		22886DD02F557BF9009F6117 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				221252812F580ED4001554DA /* Weather-App */,
 				22886DD12F557C2C009F6117 /* FavoritesService.swift */,
 				2296B0BF2F56CFD4009EC91E /* ProfileService.swift */,
 			);

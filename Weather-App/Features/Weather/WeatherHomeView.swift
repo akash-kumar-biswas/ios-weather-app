@@ -11,6 +11,16 @@ struct WeatherHomeView: View {
     @State private var city = ""
     @State private var hasLoadedInitialWeather = false
     
+    // Converts the stored "C"/"F" preference to the API units string
+    private var apiUnits: String {
+        appState.temperatureUnit == "F" ? "imperial" : "metric"
+    }
+    
+    // Symbol shown next to the temperature
+    private var unitSymbol: String {
+        appState.temperatureUnit == "F" ? "°F" : "°C"
+    }
+    
     var body: some View {
         ZStack {
             
@@ -35,7 +45,7 @@ struct WeatherHomeView: View {
                         
                         Button {
                             Task {
-                                await weatherVM.fetchWeather(for: city)
+                                await weatherVM.fetchWeather(for: city, units: apiUnits)
                             }
                         } label: {
                             Image(systemName: "magnifyingglass")
@@ -55,14 +65,14 @@ struct WeatherHomeView: View {
                                 .font(.title2)
                                 .foregroundColor(.white.opacity(0.8))
                             
-                            Text("\(Int(weather.main.temp))°")
+                            Text("\(Int(weather.main.temp))\(unitSymbol)")
                                 .font(.system(size: 90, weight: .thin))
                                 .foregroundColor(.white)
                             
                             Text(weather.weather.first?.description.capitalized ?? "")
                                 .foregroundColor(.white.opacity(0.9))
                             
-                            Text("H: \(Int(weather.main.temp + 2))°  L: \(Int(weather.main.temp - 3))°")
+                            Text("H: \(Int(weather.main.temp + 2))\(unitSymbol)  L: \(Int(weather.main.temp - 3))\(unitSymbol)")
                                 .foregroundColor(.white.opacity(0.7))
                         }
                         .padding(.top, 30)
@@ -81,8 +91,8 @@ struct WeatherHomeView: View {
                         }
                         .padding(.top, 10)
                         
-                        HourlyForecastView(hourly: weatherVM.hourlyForecast)
-                        DailyForecastView(daily: weatherVM.dailyForecast)
+                        HourlyForecastView(hourly: weatherVM.hourlyForecast, temperatureUnit: appState.temperatureUnit)
+                        DailyForecastView(daily: weatherVM.dailyForecast, temperatureUnit: appState.temperatureUnit)
                     }
                     
                     if weatherVM.isLoading {
@@ -104,8 +114,15 @@ struct WeatherHomeView: View {
                     if let selectedCity = selectedCity {
                         city = selectedCity
                         Task {
-                            await weatherVM.fetchWeather(for: selectedCity)
+                            await weatherVM.fetchWeather(for: selectedCity, units: apiUnits)
                         }
+                    }
+                }
+                // Re-fetch when the user switches temperature unit
+                .onChange(of: appState.temperatureUnit) { _ in
+                    guard !city.isEmpty else { return }
+                    Task {
+                        await weatherVM.fetchWeather(for: city, units: apiUnits)
                     }
                 }
             }
@@ -124,13 +141,14 @@ struct WeatherHomeView: View {
                     Task {
                         await weatherVM.fetchWeather(
                             latitude: location.coordinate.latitude,
-                            longitude: location.coordinate.longitude
+                            longitude: location.coordinate.longitude,
+                            units: apiUnits
                         )
                     }
                 } else {
                     // fallback only if location truly unavailable
                     Task {
-                        await weatherVM.fetchWeather(for: "Khulna")
+                        await weatherVM.fetchWeather(for: "Khulna", units: apiUnits)
                     }
                 }
             }

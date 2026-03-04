@@ -6,14 +6,14 @@ final class WeatherAPIClient {
     
     private init() {}
     
-    func fetchWeather(for city: String) async throws -> WeatherResponse {
+    func fetchWeather(for city: String, units: String = "metric") async throws -> WeatherResponse {
         
         let apiKey = APIKeys.openWeatherKey
         
         let encodedCity = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? city
         
         let urlString = """
-        https://api.openweathermap.org/data/2.5/weather?q=\(encodedCity)&appid=\(apiKey)&units=metric
+        https://api.openweathermap.org/data/2.5/weather?q=\(encodedCity)&appid=\(apiKey)&units=\(units)
         """
         
         guard let url = URL(string: urlString) else {
@@ -33,13 +33,13 @@ final class WeatherAPIClient {
         return weather
     }
     
-    func fetchForecast(for city: String) async throws -> ForecastResponse {
+    func fetchForecast(for city: String, units: String = "metric") async throws -> ForecastResponse {
         
         let apiKey = APIKeys.openWeatherKey
         let encodedCity = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? city
         
         let urlString = """
-        https://api.openweathermap.org/data/2.5/forecast?q=\(encodedCity)&appid=\(apiKey)&units=metric
+        https://api.openweathermap.org/data/2.5/forecast?q=\(encodedCity)&appid=\(apiKey)&units=\(units)
         """
         
         guard let url = URL(string: urlString) else {
@@ -58,12 +58,12 @@ final class WeatherAPIClient {
     }
     
     //for fetching weather of current location
-    func fetchWeather(latitude: Double, longitude: Double) async throws -> WeatherResponse {
+    func fetchWeather(latitude: Double, longitude: Double, units: String = "metric") async throws -> WeatherResponse {
         
         let apiKey = APIKeys.openWeatherKey
         
         let urlString = """
-        https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)&units=metric
+        https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)&units=\(units)
         """
         
         guard let url = URL(string: urlString) else {
@@ -81,12 +81,12 @@ final class WeatherAPIClient {
         return try decoder.decode(WeatherResponse.self, from: data)
     }
     //FETCH forecast for latitude and longitude
-    func fetchForecast(latitude: Double, longitude: Double) async throws -> ForecastResponse {
+    func fetchForecast(latitude: Double, longitude: Double, units: String = "metric") async throws -> ForecastResponse {
         
         let apiKey = APIKeys.openWeatherKey
         
         let urlString = """
-        https://api.openweathermap.org/data/2.5/forecast?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)&units=metric
+        https://api.openweathermap.org/data/2.5/forecast?lat=\(latitude)&lon=\(longitude)&appid=\(apiKey)&units=\(units)
         """
         
         guard let url = URL(string: urlString) else {

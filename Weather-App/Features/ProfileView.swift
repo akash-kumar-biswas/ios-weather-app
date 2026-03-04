@@ -4,6 +4,7 @@ import FirebaseAuth
 struct ProfileView: View {
     
     @EnvironmentObject var authVM: AuthViewModel
+    @EnvironmentObject var appState: AppState
     @StateObject private var profileVM = ProfileViewModel()
     @StateObject private var favoritesVM = FavoritesViewModel()
     
@@ -136,10 +137,12 @@ struct ProfileView: View {
                     country = profile.country
                     gender = profile.gender
                     temperatureUnit = profile.temperatureUnit
+                    appState.temperatureUnit = profile.temperatureUnit  // sync global state
                 }
             }
         }
         .onChange(of: temperatureUnit) { _ in
+            appState.temperatureUnit = temperatureUnit   // immediately broadcast change
             Task {
                 let created = profileVM.profile?.createdAt ?? Date()
                 let updated = UserProfile(

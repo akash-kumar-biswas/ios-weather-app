@@ -3,6 +3,9 @@ import SwiftUI
 struct DailyForecastView: View {
     
     let daily: [ForecastItem]
+    var temperatureUnit: String = "C"
+    
+    private var unitSymbol: String { temperatureUnit == "F" ? "°F" : "°C" }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
@@ -31,7 +34,7 @@ struct DailyForecastView: View {
                     
                     Spacer()
                     
-                    Text("\(Int(item.main.temp))°")
+                    Text("\(Int(item.main.temp))\(unitSymbol)")
                         .foregroundColor(.white)
                         .fontWeight(.medium)
                 }

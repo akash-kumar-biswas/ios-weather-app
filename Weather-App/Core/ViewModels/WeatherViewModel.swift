@@ -36,13 +36,13 @@ final class WeatherViewModel: ObservableObject {
     }
     
     // MARK: - Fetch Weather
-    func fetchWeather(for city: String) async {
+    func fetchWeather(for city: String, units: String = "metric") async {
         isLoading = true
         errorMessage = nil
         
         do {
-            async let current = WeatherAPIClient.shared.fetchWeather(for: city)
-            async let forecastData = WeatherAPIClient.shared.fetchForecast(for: city)
+            async let current = WeatherAPIClient.shared.fetchWeather(for: city, units: units)
+            async let forecastData = WeatherAPIClient.shared.fetchForecast(for: city, units: units)
             
             self.weather = try await current
             self.forecast = try await forecastData
@@ -55,16 +55,16 @@ final class WeatherViewModel: ObservableObject {
     }
     
     // for fetching weather of current location
-    func fetchWeather(latitude: Double, longitude: Double) async {
+    func fetchWeather(latitude: Double, longitude: Double, units: String = "metric") async {
         isLoading = true
         errorMessage = nil
         
         do {
             async let current = WeatherAPIClient.shared
-                .fetchWeather(latitude: latitude, longitude: longitude)
+                .fetchWeather(latitude: latitude, longitude: longitude, units: units)
             
             async let forecastData = WeatherAPIClient.shared
-                .fetchForecast(latitude: latitude, longitude: longitude)
+                .fetchForecast(latitude: latitude, longitude: longitude, units: units)
             
             self.weather = try await current
             self.forecast = try await forecastData
