@@ -1,4 +1,3 @@
-
 import Foundation
 import FirebaseAuth
 
@@ -17,6 +16,8 @@ final class AuthViewModel: ObservableObject {
         }
     }
     
+    // MARK: - Auth Actions
+    
     func signUp(email: String, password: String) async {
         isLoading = true
         errorMessage = nil
@@ -26,7 +27,7 @@ final class AuthViewModel: ObservableObject {
                 .createUser(withEmail: email, password: password)
             self.user = result.user
         } catch {
-            errorMessage = error.localizedDescription
+            errorMessage = friendlyMessage(from: error)
         }
         
         isLoading = false
@@ -41,7 +42,7 @@ final class AuthViewModel: ObservableObject {
                 .signIn(withEmail: email, password: password)
             self.user = result.user
         } catch {
-            errorMessage = error.localizedDescription
+            errorMessage = friendlyMessage(from: error)
         }
         
         isLoading = false
@@ -52,7 +53,37 @@ final class AuthViewModel: ObservableObject {
             try Auth.auth().signOut()
             user = nil
         } catch {
-            errorMessage = error.localizedDescription
+            errorMessage = friendlyMessage(from: error)
+        }
+    }
+    
+    // MARK: - Error Mapping
+    
+    private func friendlyMessage(from error: Error) -> String {
+        let code = AuthErrorCode(_nsError: error as NSError)
+        switch code.code {
+        case .wrongPassword:
+            return "Wrong password. Please try again."
+        case .invalidCredential:
+            return "Incorrect email or password. Please try again."
+        case .userNotFound:
+            return "No account found with this email. Please sign up first."
+        case .invalidEmail:
+            return "Please enter a valid email address."
+        case .emailAlreadyInUse:
+            return "This email is already registered. Try logging in instead."
+        case .weakPassword:
+            return "Password is too weak. Please use at least 6 characters."
+        case .networkError:
+            return "Network error. Please check your connection and try again."
+        case .tooManyRequests:
+            return "Too many failed attempts. Please wait a moment and try again."
+        case .userDisabled:
+            return "This account has been disabled. Please contact support."
+        case .requiresRecentLogin:
+            return "Please log out and sign in again to continue."
+        default:
+            return "Something went wrong. Please try again."
         }
     }
 }
