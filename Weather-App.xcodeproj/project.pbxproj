@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22550D402F594D5600F25042 /* CitySearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22550D3F2F594D5600F25042 /* CitySearchResult.swift */; };
 		22886DAB2F554760009F6117 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 22886DAA2F554760009F6117 /* FirebaseAuth */; };
 		22886DAD2F554760009F6117 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 22886DAC2F554760009F6117 /* FirebaseFirestore */; };
 		22886DB02F554B97009F6117 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22886DAF2F554B97009F6117 /* AuthViewModel.swift */; };
@@ -62,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		221252812F580ED4001554DA /* Weather-App */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Weather-App"; sourceTree = SOURCE_ROOT; };
+		22550D3F2F594D5600F25042 /* CitySearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchResult.swift; sourceTree = "<group>"; };
 		22886DAF2F554B97009F6117 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		22886DB42F554C5D009F6117 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		22886DB62F5555AE009F6117 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				22886DBC2F555948009F6117 /* WeatherResponse.swift */,
 				22886DCA2F5562D1009F6117 /* ForecastResponse.swift */,
 				2296B0BD2F56CF8D009EC91E /* UserProfile.swift */,
+				22550D3F2F594D5600F25042 /* CitySearchResult.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				22886DB02F554B97009F6117 /* AuthViewModel.swift in Sources */,
 				22886DD42F557CC0009F6117 /* FavoritesViewModel.swift in Sources */,
 				22886DD72F557E65009F6117 /* FavoritesView.swift in Sources */,
+				22550D402F594D5600F25042 /* CitySearchResult.swift in Sources */,
 				22886DCF2F556700009F6117 /* DailyForecastView.swift in Sources */,
 				22886DC02F555A07009F6117 /* WeatherAPIClient.swift in Sources */,
 				22B204382F54266200E69192 /* Weather_AppApp.swift in Sources */,

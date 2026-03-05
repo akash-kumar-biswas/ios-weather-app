@@ -7,6 +7,12 @@ final class WeatherViewModel: ObservableObject {
     @Published var forecast: ForecastResponse?
     @Published var isLoading = false
     @Published var errorMessage: String?
+
+    // MARK: - City Suggestions
+    @Published var citySuggestions: [CitySearchResult] = []
+
+    /// Debounce task so we don't fire a request on every keystroke
+    private var suggestionTask: Task<Void, Never>?
     
     // MARK: - Hourly (first 8 items ≈ 24 hours)
     var hourlyForecast: [ForecastItem] {
@@ -74,5 +80,37 @@ final class WeatherViewModel: ObservableObject {
         }
         
         isLoading = false
+    }
+
+    // MARK: - City Autocomplete Suggestions
+    /// Call this on every keystroke. Debounces 300 ms then hits the Geocoding API.
+    func fetchSuggestions(for query: String) {
+        suggestionTask?.cancel()
+
+        guard query.count >= 2 else {
+            citySuggestions = []
+            return
+        }
+
+        suggestionTask = Task {
+            // 300 ms debounce
+            try? await Task.sleep(nanoseconds: 300_000_000)
+            guard !Task.isCancelled else { return }
+
+            do {
+                let results = try await WeatherAPIClient.shared.fetchCitySuggestions(for: query)
+                if !Task.isCancelled {
+                    citySuggestions = results
+                }
+            } catch {
+                // Silently ignore suggestion errors
+                citySuggestions = []
+            }
+        }
+    }
+
+    func clearSuggestions() {
+        suggestionTask?.cancel()
+        citySuggestions = []
     }
 }

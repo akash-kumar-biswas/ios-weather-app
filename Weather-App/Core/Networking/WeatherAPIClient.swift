@@ -103,4 +103,26 @@ final class WeatherAPIClient {
         let decoder = JSONDecoder()
         return try decoder.decode(ForecastResponse.self, from: data)
     }
+
+    // MARK: - Geocoding / City Suggestions
+    /// Returns up to `limit` city suggestions for the given query using the OWM Geocoding API.
+    func fetchCitySuggestions(for query: String, limit: Int = 7) async throws -> [CitySearchResult] {
+        let apiKey = APIKeys.openWeatherKey
+        let encoded = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? query
+
+        let urlString = "https://api.openweathermap.org/geo/1.0/direct?q=\(encoded)&limit=\(limit)&appid=\(apiKey)"
+
+        guard let url = URL(string: urlString) else {
+            throw URLError(.badURL)
+        }
+
+        let (data, response) = try await URLSession.shared.data(from: url)
+
+        guard let httpResponse = response as? HTTPURLResponse,
+              httpResponse.statusCode == 200 else {
+            throw URLError(.badServerResponse)
+        }
+
+        return try JSONDecoder().decode([CitySearchResult].self, from: data)
+    }
 }
